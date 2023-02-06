@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #box {
+            width: 500px;
+            padding: 20px;
+            text-align: center;
+            position: absolute;
+            left: 30%;
+            top: 5%;
+            border: 2px solid black;
+        }
+
+        #box p{
+            border: 1px dotted black;
+        }
+
+        #paragraph {
+            font-size: 20px;
+        }
+
+        #font-size-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #font-size-display {
+            margin: 0 10px;
+        }
+
+        #source-code-display {
+            width: 100%;
+            height: 150px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box">
+        <p id="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+        <select id="font-selector">
+            <option value="Arial">Arial</option>
+            <option value="Helvetica">Helvetica</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Verdana">Verdana</option>
+        </select>
+        <div id="font-size-controls">
+            <button id="decrease-font-size">-</button>
+            <span id="font-size-display">20</span>
+            <button id="increase-font-size">+</button>
+        </div>
+        <textarea id="source-code-display"></textarea>
+        <button id="copy-source-code">Copy source code</button>
+    </div>
+
+
+
+    <script>
+        const paragraph = document.getElementById("paragraph");
+        const fontSelector = document.getElementById("font-selector");
+        const decreaseFontButton = document.getElementById("decrease-font-size");
+        const increaseFontButton = document.getElementById("increase-font-size");
+        const copySourceButton = document.getElementById("copy-source-code");
+        const fontSizeDisplay = document.getElementById("font-size-display");
+        const sourceCodeDisplay = document.getElementById("source-code-display");
+
+        let fontSize = 20;
+
+        fontSelector.addEventListener("change", function () {
+            const selectedFont = fontSelector.value;
+            paragraph.style.fontFamily = selectedFont;
+        });
+
+        decreaseFontButton.addEventListener("click", function () {
+            fontSize -= 2;
+            paragraph.style.fontSize = fontSize + "px";
+            fontSizeDisplay.textContent = fontSize;
+        });
+
+        increaseFontButton.addEventListener("click", function () {
+            fontSize += 2;
+            paragraph.style.fontSize = fontSize + "px";
+            fontSizeDisplay.textContent = fontSize;
+        });
+
+        copySourceButton.addEventListener("click", function () {
+            const sourceCode = document.documentElement.outerHTML;
+            sourceCodeDisplay.value = sourceCode;
+            navigator.clipboard.writeText(sourceCode);
+        });
+
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 25%;
+      }
+      th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+      }
+    </style>
+    <script>
+      var shoppingCart = [];
+
+      function addToCart(product) {
+        var existingProduct = shoppingCart.find(function (p) {
+          return p.name === product.name;
+        });
+
+        if (existingProduct) {
+          existingProduct.quantity += 1;
+        } else {
+          shoppingCart.push({ ...product, quantity: 1 });
+        }
+
+        updateCartDisplay();
+      }
+
+      function updateCartDisplay() {
+        var cartTable = document.getElementById("cart-table");
+        cartTable.innerHTML = "";
+
+        var header = `
+          <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+          </tr>
+        `;
+        cartTable.innerHTML = header;
+
+        shoppingCart.forEach(function (product) {
+          var row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${product.name}</td>
+            <td>${product.quantity}</td>
+          `;
+          cartTable.appendChild(row);
+        });
+      }
+    </script>
+
+    <style>
+
+      body{
+        display: flex;
+        gap: 10rem;
+      }
+
+      
+      #table td{
+        border: none;
+      }
+
+      #table tr {
+        border-bottom: 1px solid black;
+
+      }
+      #table td button{
+        width: 6rem;
+      }
+
+      #cart-table td{
+        text-align: center;
+        
+      }
+
+      #cart-table{
+        width: 13rem;
+      }
+
+      .cart{
+        text-align: center;
+      }
+
+
+    </style>
+
+
+
+
+  </head>
+  <body>
+    <div id="products">
+      <h1>Products</h1>
+
+      <table id="table">
+        <tr><td><p>Television</p></td><td><button onclick="addToCart({ name: 'Television' })">Add to Cart</button></td></tr>
+
+        <tr><td><p> Laptop</p></td><td><button onclick="addToCart({ name: 'Laptop' })">Add to Cart</button></td></tr>
+
+        <tr><td><p>Fridge</p></td><td><button onclick="addToCart({ name: 'Fridge' })">Add to Cart</button></td></tr>
+
+        <tr><td><p>Washing Machine</p></td><td><button onclick="addToCart({ name: 'Washing Machine' })">Add to Cart</button></td></tr>
+
+        <tr><td><p>Fan</p></td><td><button onclick="addToCart({ name: 'Fan' })">Add to Cart</button></td></tr>
+    
+  
+
+      </table>
+     
+    </div>
+    <div class="cart">
+      <h1>Your Cart</h1>
+      <table id="cart-table"></table>
+    </div>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #fff;
+            color: #333;
+            transition: all 0.3s ease-in-out;
+            font-family: Arial, sans-serif;
+        }
+
+        .toggle-container {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 30px;
+            background: #ccc;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .toggle-switch {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 26px;
+            height: 26px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .toggle-switch {
+            left: calc(60% - 2px);
+            background: #333;
+        }
+
+
+
+
+        h1 {
+            font-size: 36px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+            text-align: justify;
+            margin: 50px;
+        }
+
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+
+        .dark-mode h1 {
+            color: #fff;
+        }
+
+        .dark-mode p {
+            color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="toggle-container">
+        <div class="toggle-switch"></div>
+    </div>
+
+    <h1>Welcome to my website</h1>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra
+        euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem,
+        adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo
+        eu convallis placerat, felis enim ornare nisi, vitae mattis nulla ante
+        id dui.</p>
+
+    <p>Aliquam non mauris vitae erat congue fringilla. Donec lacus libero,
+        rutrum ac sollicitudin a, lacinia in lacus. Sed dignissim, diam id
+        adipiscing convallis, nisi nisl suscipit risus, a commodo nisi lectus
+        in nisl. Sed nisl nisi, commodo in suscipit id, tristique in enim.
+        Sed euismod, velit vel commodo sollicitudin, magna risus congue ante,
+        a facilisis magna lectus et nibh.</p>
+
+
+
+    <script>
+        const toggleSwitch = document.querySelector('.toggle-switch');
+        const body = document.querySelector('body');
+
+        toggleSwitch.addEventListener('click', function () {
+            body.classList.toggle('dark-mode');
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>

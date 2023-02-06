@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+    .main{
+        display: flex;
+        flex-direction: column;
+        height: 30vh;
+        width: 50vw;
+        position: absolute;
+        left: 25%;
+        top: 25%;
+        background-color: rgb(43, 89, 226);
+        gap: 1rem;
+        font-size: 25px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 25px;
+    }
+
+    input{
+        height: 1.5rem;
+    }
+
+    .pass1{
+        display: flex;
+        gap: 96px;
+    }
+
+    #submitButton{
+        padding: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 10px;
+        margin-top: 2rem;
+        border: none;
+    }
+    
+
+
+</style>
+
+
+
+
+</head>
+
+<body>
+    <div class="main">
+        <div class="pass1">Password:
+        <input type="password" name=password1 id="password" />
+    </div>
+
+        <div class="pass2">
+            Confirm Password:
+        <input type="password" name=password2 id="confirmPassword" />
+
+        </div>
+
+        <button type="submit" id="submitButton">Submit</button>
+    </div>
+
+
+</body>
+<script>
+    document.getElementById("submitButton").disabled = true;
+
+    document.getElementById("password").oninput = function () {
+        checkPasswordMatch();
+    }
+
+    document.getElementById("confirmPassword").oninput = function () {
+        checkPasswordMatch();
+    }
+
+    function checkPasswordMatch() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+
+        if (password !== confirmPassword) {
+            document.getElementById("submitButton").disabled = true;
+        } else {
+            document.getElementById("submitButton").disabled = false;
+        }
+    }
+
+</script>
+
+</html>

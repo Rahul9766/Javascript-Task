@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #header {
+            display: flex;
+            gap: 5px;
+            padding: 10px;
+            background-color: lightgray;
+        }
+
+        #content {
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <button id="home-button">Home</button>
+        <button id="about-button">About</button>
+        <button id="contact-button">Contact</button>
+    </div>
+    <div id="content">
+        <h1 id="page-title"></h1>
+        <p id="page-description"></p>
+    </div>
+
+
+    <script>
+        const homeButton = document.getElementById("home-button");
+        const aboutButton = document.getElementById("about-button");
+        const contactButton = document.getElementById("contact-button");
+        const pageTitle = document.getElementById("page-title");
+        const pageDescription = document.getElementById("page-description");
+
+        homeButton.addEventListener("click", function () {
+            pageTitle.innerHTML = "Home";
+            pageDescription.innerHTML = "Welcome to the home page. This is where you can find information about our website.";
+        });
+
+        aboutButton.addEventListener("click", function () {
+            pageTitle.innerHTML = "About";
+            pageDescription.innerHTML = "Learn more about us and what we do. Our mission is to provide valuable information to our users.";
+        });
+
+        contactButton.addEventListener("click", function () {
+            pageTitle.innerHTML = "Contact";
+            pageDescription.innerHTML = "Get in touch with us. Fill out the form or send us an email. We'll get back to you as soon as possible.";
+        });
+
+    </script>
+</body>
+
+</html>

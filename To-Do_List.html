@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .done {
+            text-decoration: line-through;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            left: 40%;
+            top: 5%;
+            background-color: plum;
+            font-size: 20px;
+            padding: 30px;
+            border-radius: 20px;
+            
+        }
+
+        
+
+
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1>To-Do List</h1>
+        <form>
+            <input type="text" id="taskInput">
+            <button type="button" id="addTask">Add Task</button>
+        </form>
+
+        <div class="list">
+            <h2>Task List</h2>
+            <ul id="taskList"></ul>
+            <button type="button" id="clearList">Clear List</button>
+
+        </div>
+
+
+    </div>
+
+
+
+
+    <script>
+        const taskInput = document.querySelector("#taskInput");
+        const addTask = document.querySelector("#addTask");
+        const taskList = document.querySelector("#taskList");
+        const clearList = document.querySelector("#clearList");
+
+        addTask.addEventListener("click", function (e) {
+            e.preventDefault();
+            const task = taskInput.value;
+            if (!task) return;
+
+            const taskItem = document.createElement("li");
+            taskItem.innerHTML = task;
+
+            taskItem.addEventListener("click", function () {
+                taskItem.classList.toggle("done");
+            });
+
+            taskList.appendChild(taskItem);
+            taskInput.value = "";
+        });
+
+        clearList.addEventListener("click", function () {
+            taskList.innerHTML = "";
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <html>
+  <head>
+    <style>
+      .completed {
+        text-decoration: line-through;
+      }
+
+      .main{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        left: 40%;
+        top:5%;
+        gap: 1rem;
+      }
+
+
+
+
+    </style>
+  </head>
+  <body>
+
+    <div class="main">
+
+        <div>
+            <h2>To-Do List</h2>
+       <input type="text" id="taskInput">
+       <button id="addTaskBtn">Add Task</button>
+       </div>
+   
+       <div class="list">
+           <h2>Task List</h2>
+   
+           <ul id="taskList"></ul>
+   
+       </div>
+      
+
+    </div>
+
+    <script>
+      const taskInput = document.getElementById("taskInput");
+      const addTaskBtn = document.getElementById("addTaskBtn");
+      const taskList = document.getElementById("taskList");
+
+      addTaskBtn.addEventListener("click", function() {
+        const taskValue = taskInput.value;
+        const newTask = document.createElement("li");
+        newTask.innerHTML = taskValue;
+        taskList.appendChild(newTask);
+
+        newTask.addEventListener("click", function() {
+          this.classList.toggle("completed");
+        });
+
+        taskInput.value = "";
+      });
+    </script>
+  </body>
+</html>
+
+
+ -->

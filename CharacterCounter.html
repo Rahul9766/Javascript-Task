@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .task-1{
+            background-color: aqua;
+            text-align: center;
+        }
+    </style>
+        <script>
+    function countChars(obj){
+    var maxLength = 50;
+    var strLength = obj.value.length;
+    var charRemain = (maxLength - strLength);
+    var charExceeds = (strLength - maxLength);
+    
+    if(charRemain >=0 && charRemain <=20  ){
+        document.getElementById("charNum").innerHTML = '<span style="color:yellow;"> '+charRemain+' characters remaining</span>';
+    }
+    else if(charRemain <0 ){
+        document.getElementById("charNum").innerHTML = '<span style="color: red;">Limit exceeds '+charExceeds+' characters</span>';
+    }
+    
+    else{
+        document.getElementById("charNum").innerHTML = charRemain+' characters remaining';
+    }
+}
+    </script>
+</head>
+<body>
+<div class="task-1">
+
+    <h1>Task-1</h1>
+<textarea name="message" onkeyup="countChars(this);"></textarea>
+<p id="charNum">50 characters remaining</p>
+
+</div>
+
+
+
+</body>
+</html>

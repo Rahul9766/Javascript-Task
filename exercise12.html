@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .quote-box {
+            width: 500px;
+            padding: 20px;
+            border: 1px solid #000000;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .quote {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .writer {
+            font-size: 16px;
+            color: #aaa;
+        }
+
+        .like-container {
+            margin-top: 20px;
+        }
+
+        .like-count {
+            margin-right: 10px;
+        }
+
+        .like-button {
+            border: none;
+            background: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="quote-box" id="quote-1">
+        <p class="quote">"The best and most beautiful things in the world cannot be seen or even touched - they must be
+            felt with the heart."</p>
+        <p class="writer">- Helen Keller</p>
+        <div class="like-container">
+            <span class="like-count">0</span>
+            <button class="like-button">❤️</button>
+        </div>
+    </div>
+
+    <div class="quote-box" id="quote-2">
+        <p class="quote">"Be the change that you wish to see in the world."</p>
+        <p class="writer">- Mahatma Gandhi</p>
+        <div class="like-container">
+            <span class="like-count">0</span>
+            <button class="like-button">❤️</button>
+        </div>
+    </div>
+
+    <div class="quote-box" id="quote-3">
+        <p class="quote">"In the end, we will remember not the words of our enemies, but the silence of our friends."
+        </p>
+        <p class="writer">- Martin Luther King Jr.</p>
+        <div class="like-container">
+            <span class="like-count">0</span>
+            <button class="like-button">❤️</button>
+        </div>
+    </div>
+    <script>
+        const quoteBoxes = document.querySelectorAll('.quote-box');
+
+        quoteBoxes.forEach(function (quoteBox) {
+            const likeButton = quoteBox.querySelector('.like-button');
+            const likeCount = quoteBox.querySelector('.like-count');
+
+            likeButton.addEventListener('click', function () {
+                likeCount.textContent = parseInt(likeCount.textContent) + 1;
+            });
+        });
+
+    </script>
+</body>
+
+</html>

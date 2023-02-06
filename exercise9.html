@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: lightgray;
+        }
+
+        #message-box {
+            padding: 20px;
+            background-color: white;
+            border: 1px solid rgb(0, 0, 0);
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 20px;
+        }
+
+        #message-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #hide-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            border: none;
+            border-radius: 11px;
+            padding: 5px 8px 5px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <button id="warning-button"> Show Warning </button>
+        <button id="error-button"> Show Error </button>
+        <button id="success-button"> Show Success </button>
+    </div>
+    <div id="message-box" style="display:none;">
+        <h1 id="message-title"></h1>
+        <p id="message-content"></p>
+        <button id="hide-button"> Hide </button>
+    </div>
+
+    <script>
+
+        const warningButton = document.getElementById("warning-button");
+        const errorButton = document.getElementById("error-button");
+        const successButton = document.getElementById("success-button");
+        const messageBox = document.getElementById("message-box");
+        const messageTitle = document.getElementById("message-title");
+        const messageContent = document.getElementById("message-content");
+        const hideButton = document.getElementById("hide-button");
+
+        warningButton.addEventListener("click", function () {
+            messageTitle.innerHTML = "Warning";
+            messageContent.innerHTML = "This is a warning message. Please be careful.";
+            messageBox.style.backgroundColor = "white";
+            messageBox.style.color = "yellow";
+            messageBox.style.display = "flex";
+            hideButton.style.backgroundColor="yellow";
+        });
+
+        errorButton.addEventListener("click", function () {
+            messageTitle.innerHTML = "Error";
+            messageContent.innerHTML = "An error has occurred. Please try again later.";
+            messageBox.style.backgroundColor = "white";
+            messageBox.style.color = "red";
+            messageBox.style.display = "flex";
+            hideButton.style.backgroundColor="red";
+        });
+
+        successButton.addEventListener("click", function () {
+            messageTitle.innerHTML = "Success";
+            messageContent.innerHTML = "The operation was completed successfully.";
+            messageBox.style.backgroundColor = "white";
+            messageBox.style.color = "green";
+            messageBox.style.display = "flex";
+            hideButton.style.backgroundColor="green";
+        });
+
+        hideButton.addEventListener("click", function () {
+            messageBox.style.display = "none";
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>
